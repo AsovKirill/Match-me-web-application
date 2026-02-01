@@ -2,6 +2,8 @@
 
 Modern Tinder-style friendship & dating platform built with Go, React, PostgreSQL, and WebSockets.
 
+💡 Note: I worked on this project as part of a team of three. We used Agile methodologies for development. The project is not yet in release, but it’s a great learning experience and demonstrates real-time social matching functionality.
+
 ## 🚀 Backend Setup (Go)
 
 ### ✅ 1. Clone the repository
@@ -68,3 +70,22 @@ cd ../front
 npm install
 npm run dev
 ```
+🛠 About the Project
+
+Worked in a team of 3 students.
+
+Followed Agile methodologies for planning and development.
+
+Project is not in release, but fully functional for demo purposes.
+
+Learned a lot about:
+
+Real-time communication with WebSockets
+
+Full-stack development with Go + React + PostgreSQL
+
+Project planning, teamwork, and Agile workflows
+
+Database seeding and schema migrations
+
+Authentication with JWT
