@@ -1,0 +1,557 @@
+/* ===== PAGE WRAPPER ===== */
+
+.friends-page {
+  width: 100%;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 32px 16px 56px;
+  animation: friends-page-in 0.28s ease-out;
+}
+
+/* ===== SECTIONS ===== */
+
+.friends-section {
+  background-color: #ffffff;
+  border-radius: 24px;
+  border: 1px solid #f3f4f6;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+  padding: 22px 26px 20px;
+  margin-bottom: 24px;
+}
+
+.friends-section-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+
+/* ===== REQUEST CARD ===== */
+
+.friends-request-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 10px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition:
+    background-color 0.15s ease,
+    box-shadow 0.15s ease,
+    transform 0.08s ease;
+}
+
+.friends-request-card:hover {
+  background-color: #fdfdfd;
+  box-shadow: 0 14px 32px rgba(15, 23, 42, 0.12);
+  transform: translateY(-1px);
+}
+
+.friends-request-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.friends-request-btn {
+  min-width: 88px;
+  padding-inline: 18px;
+  font-size: 14px;
+}
+
+.friends-request-btn--secondary {
+  border-color: #e5e7eb;
+  color: #6b7280;
+  background-color: #f3f4f6;
+}
+
+/* ===== USER INLINE VIEW ===== */
+
+.friends-user-main {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.friends-avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 999px;
+  background: linear-gradient(145deg, #e5e7eb, #f3f4f6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  flex-shrink: 0;
+}
+
+.friends-avatar img {
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  object-fit: cover;
+}
+
+.friends-user-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.friends-user-name {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.friends-user-sub {
+  font-size: 13px;
+  color: #9ca3af;
+}
+
+/* ===== FRIENDS LIST ROWS ===== */
+
+.friends-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 10px;
+  border-radius: 16px;
+  cursor: pointer;
+  transition:
+    background-color 0.15s ease,
+    box-shadow 0.15s ease,
+    transform 0.08s ease;
+}
+
+.friends-row + .friends-row {
+  margin-top: 6px;
+}
+
+.friends-row:hover {
+  background-color: #fdfdfd;
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
+  transform: translateY(-1px);
+}
+
+/* Блок действий справа (сообщения + удалить) */
+.friends-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.friends-chat-icon {
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.15s ease, transform 0.08s ease;
+}
+
+.friends-chat-icon:hover {
+  background-color: #f3f4f6;
+  transform: translateY(-1px);
+}
+
+/* Кнопка удаления друга */
+.friends-remove-icon {
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    background-color 0.15s ease,
+    transform 0.08s ease;
+}
+
+.friends-remove-icon:hover {
+  background-color: #fee2e2;
+  transform: translateY(-1px);
+}
+
+.btn-chat-img {
+  width: 24px;
+  height: 24px;
+}
+
+.btn-del-img {
+  opacity: 0.5;
+}
+
+/* ===== EMPTY STATE ===== */
+
+.friends-empty {
+  font-size: 14px;
+  color: #9ca3af;
+  padding: 8px 2px;
+}
+
+/* ===== MODAL ===== */
+
+.friends-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.32);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 40;
+  animation: friends-backdrop-in 0.18s ease-out;
+}
+
+.friends-modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 500px;
+  max-width: 500px;
+  background-color: #ffffff;
+  border-radius: 26px;
+  padding: 22px 24px 18px;
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.35);
+  transform-origin: center;
+  animation: friends-modal-in 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Header */
+
+.friends-modal-header {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 16px;
+}
+
+.friends-modal-avatar {
+  width: 68px;
+  height: 68px;
+  border-radius: 999px;
+  background: linear-gradient(145deg, #e5e7eb, #f3f4f6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 34px;
+  flex-shrink: 0;
+}
+
+.friends-modal-avatar img {
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  object-fit: cover;
+}
+
+.friends-modal-title {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.friends-modal-name {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.friends-modal-meta {
+  font-size: 14px;
+  color: #9ca3af;
+}
+
+/* Body */
+
+.friends-modal-body {
+  width: 100%;
+  margin-top: 6px;
+  margin-bottom: 18px;
+  max-height: 420px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.friends-modal-section {
+  margin-bottom: 30px;
+}
+
+.friends-modal-section-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.friends-icon-circle {
+  width: 26px;
+  height: 26px;
+  border-radius: 999px;
+  background-color: #f3f4f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.friends-icon-circle img {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+}
+
+.friends-modal-text {
+  font-size: 14px;
+  color: #4b5563;
+  padding: 15px 10px;
+  border-radius: 15px;
+  background-color: #eef2f7;
+}
+
+/* Chips */
+
+.friends-chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.friends-chip-row--tight {
+  gap: 6px;
+}
+
+.friends-chip {
+  border-radius: 999px;
+  padding: 6px 14px;
+  font-size: 13px;
+  background-color: #eef2f7;
+}
+
+.friends-chip--tiny {
+  padding: 4px 10px;
+  font-size: 12px;
+}
+
+/* Split bottom */
+
+.friends-modal-split {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.friends-looking {
+  padding: 15px 10px;
+  border-radius: 15px;
+  background-color: #eef2f7;
+}
+
+.friends-looking-title {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.friends-looking-sub {
+  font-size: 13px;
+  color: #9ca3af;
+  margin-top: 2px;
+}
+
+.friends-basic-field {
+  margin-top: 4px;
+  padding: 15px 10px;
+  border-radius: 15px;
+  background-color: #eef2f7;
+}
+
+.friends-basic-label {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #6b7280;
+}
+
+.friends-basic-value {
+  font-size: 13px;
+  color: #111827;
+}
+
+/* Modal actions */
+
+.friends-modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  width: 100%;
+}
+
+.friends-modal-btn {
+  font-size: 13px;
+  padding-inline: 26px;
+}
+
+/* ===== ANIMATIONS ===== */
+
+@keyframes friends-page-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes friends-backdrop-in {
+  from {
+    opacity: 0;
+    backdrop-filter: blur(0px);
+  }
+  to {
+    opacity: 1;
+    backdrop-filter: blur(2px);
+  }
+}
+
+@keyframes friends-modal-in {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* ===== RESPONSIVE ===== */
+
+/* планшеты / маленькие ноуты */
+@media (max-width: 1024px) {
+  .friends-page {
+    padding: 24px 12px 40px;
+  }
+
+  .friends-section {
+    padding: 18px 18px 16px;
+  }
+}
+
+/* мобилки — bottom-sheet модалка и компактные карточки */
+@media (max-width: 640px) {
+  .friends-page {
+    max-width: 480px;
+    padding: 16px 12px 32px;
+  }
+
+  .friends-section-title {
+    font-size: 16px;
+  }
+
+  .friends-section {
+    padding: 16px 14px 14px;
+    border-radius: 20px;
+  }
+
+  .friends-request-card,
+  .friends-row {
+    padding-inline: 6px;
+  }
+
+  .friends-avatar {
+    width: 48px;
+    height: 48px;
+  }
+
+  .friends-user-name {
+    font-size: 14px;
+  }
+
+  .friends-user-sub {
+    font-size: 12px;
+  }
+
+  .friends-actions {
+    gap: 10px;
+  }
+
+  /* === bottom-sheet стиль модалки === */
+  .friends-modal-backdrop {
+    align-items: flex-end;
+    justify-content: center;
+    padding: 0;
+    background: rgba(15, 23, 42, 0.45);
+    backdrop-filter: blur(4px);
+  }
+
+  .friends-modal {
+    width: 100%;
+    max-width: 480px;
+    min-width: 0;
+    margin: 0 auto;
+    border-radius: 20px 20px 0 0;
+    padding: 16px 16px 14px;
+    box-shadow: 0 -8px 30px rgba(15, 23, 42, 0.35);
+
+    max-height: 80vh;
+    height: auto;
+  }
+
+
+  .friends-modal::before {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 4px;
+    border-radius: 999px;
+    background-color: #e5e7eb;
+    margin: 0 auto 10px;
+  }
+
+  .friends-modal-header {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .friends-modal-body {
+    max-height: none;
+    flex: 1;
+    width: 100%;
+    margin-bottom: 12px;
+  }
+
+  .friends-modal-section {
+    margin-bottom: 20px;
+  }
+
+  .friends-modal-name {
+    font-size: 18px;
+  }
+
+  .friends-modal-meta {
+    font-size: 13px;
+  }
+
+ 
+  .friends-modal-actions {
+    flex-direction: column-reverse;
+    gap: 8px;
+  }
+
+  .friends-modal-btn {
+    width: 100%;
+    font-size: 14px;
+    padding-block: 10px;
+  }
+}
